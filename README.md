@@ -1,6 +1,4 @@
-# Calculator-Python-Application
-
-# 🧮 Simple GUI Calculator using Python Tkinter
+# Simple GUI Calculator using Python Tkinter
 
 A basic calculator app built with Python's `tkinter` module. This project demonstrates the use of event handling, dynamic widget generation, and simple arithmetic logic using Python.
 
