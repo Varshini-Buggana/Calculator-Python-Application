@@ -17,7 +17,7 @@ A basic calculator app built with Python's `tkinter` module. This project demons
 ## 📸 Screenshot
 
 > *(Add a screenshot here if you want, using:)*  
-> `![Calculator Screenshot](screenshot.png)`
+> (screenshot.png)
 
 ---
 
