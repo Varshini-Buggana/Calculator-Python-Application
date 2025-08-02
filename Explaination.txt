@@ -1,0 +1,112 @@
+ Let's break down the Tkinter GUI Calculator code step by step:
+
+1. Import Tkinter
+python
+Copy
+Edit
+import tkinter as tk
+Tkinter is the standard GUI toolkit in Python. We use it to create GUI windows, buttons, and other widgets.
+
+2. Function to Handle Button Clicks
+python
+Copy
+Edit
+def click(event):
+    text = event.widget.cget("text")
+This function is triggered when a button is clicked.
+
+event.widget.cget("text") gets the text of the button that was clicked.
+
+3. Action Based on Button Text
+python
+Copy
+Edit
+    if text == "=":
+        try:
+            result = str(eval(entry.get()))
+If the "=" button is pressed:
+
+eval(entry.get()) evaluates the expression (like 2+3*5).
+
+It returns the result, which is shown in the entry box.
+
+python
+Copy
+Edit
+        except Exception as e:
+            entry.delete(0, tk.END)
+            entry.insert(tk.END, "Error")
+If there's an error (like dividing by zero), it shows "Error".
+
+python
+Copy
+Edit
+    elif text == "C":
+        entry.delete(0, tk.END)
+If the user presses "C" (Clear), the entry box is cleared.
+
+python
+Copy
+Edit
+    else:
+        entry.insert(tk.END, text)
+For other buttons (numbers and operators), it adds the button text to the entry box.
+
+4. Create Main Window
+python
+Copy
+Edit
+root = tk.Tk()
+root.title("Calculator")
+root.geometry("300x400")
+Creates the main application window with a title and fixed size.
+
+5. Create Input Field
+python
+Copy
+Edit
+entry = tk.Entry(root, font="Arial 20", borderwidth=4, relief=tk.RIDGE)
+entry.pack(fill=tk.BOTH, ipadx=8, pady=10)
+tk.Entry creates a single-line input field.
+
+fill=tk.BOTH allows it to expand horizontally.
+
+font makes it look nicer.
+
+6. Define Buttons in a Grid
+python
+Copy
+Edit
+buttons = [
+    ['7', '8', '9', '/'],
+    ['4', '5', '6', '*'],
+    ['1', '2', '3', '-'],
+    ['C', '0', '=', '+']
+]
+This list defines the calculator buttons row by row.
+
+7. Create Frames and Buttons
+python
+Copy
+Edit
+for row in buttons:
+    frame = tk.Frame(root)
+    frame.pack(expand=True, fill="both")
+Each row of buttons is placed inside a frame for better layout control.
+
+python
+Copy
+Edit
+    for btn in row:
+        button = tk.Button(frame, text=btn, font="Arial 18", relief=tk.GROOVE, border=0)
+        button.pack(side=tk.LEFT, expand=True, fill="both", padx=2, pady=2)
+        button.bind("<Button-1>", click)
+Creates each button, styles it, and binds the click function to it.
+
+8. Start the GUI Loop
+python
+Copy
+Edit
+root.mainloop()
+This line tells Python to keep the window open and wait for user interaction (event loop).
+
