@@ -35,3 +35,10 @@ A basic calculator app built with Python's `tkinter` module. This project demons
 
 ```bash
 python calculator.py
+```
+
+---
+
+## 🙌 Author
+
+Made with ❤️ by **Varshini**
